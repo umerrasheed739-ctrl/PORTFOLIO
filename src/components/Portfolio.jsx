@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Portfolio = () => {
+  // Mobile Menu State
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Auto-set Browser Tab Title
+  useEffect(() => {
+    document.title = "Umer Rasheed | Portfolio";
+  }, []);
+
   const profileData = {
     name: "Umer Rasheed",
     tagline: "Building Scalable Mobile & Web Solutions",
@@ -81,8 +89,8 @@ const Portfolio = () => {
   return (
     <div className="bg-[#0b101d] text-slate-300 min-h-screen font-sans antialiased selection:bg-cyan-500 selection:text-black overflow-x-hidden">
       
-      {/* Top Navbar - Fixed for Mobile */}
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between">
+      {/* Top Navbar with Responsive Mobile Navigation */}
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between relative z-50">
         <div className="text-xl font-bold tracking-tight text-white shrink-0">
           <span className="text-cyan-400">&lt;</span>Umer<span className="text-cyan-400">/&gt;</span>
         </div>
@@ -95,15 +103,40 @@ const Portfolio = () => {
           <a href="#contact" className="hover:text-cyan-400 transition">Contact</a>
         </div>
 
-        {/* Action Button */}
-        <a 
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=umerrasheed739@gmail.com" 
-          target="_blank" 
-          rel="noreferrer"
-          className="px-4 py-2 text-xs font-semibold text-cyan-400 border border-cyan-500/40 rounded-lg hover:bg-cyan-500/10 transition shrink-0"
-        >
-          Let's Talk
-        </a>
+        <div className="flex items-center gap-3">
+          {/* Action Button */}
+          <a 
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=umerrasheed739@gmail.com" 
+            target="_blank" 
+            rel="noreferrer"
+            className="px-3 py-1.5 sm:px-4 sm:py-2 text-xs font-semibold text-cyan-400 border border-cyan-500/40 rounded-lg hover:bg-cyan-500/10 transition shrink-0"
+          >
+            Let's Talk
+          </a>
+
+          {/* Mobile Hamburger Menu Icon (3 Lines / Cross) */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none"
+            aria-label="Toggle Navigation Menu"
+          >
+            {isMenuOpen ? (
+              <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Dropdown Menu */}
+        {isMenuOpen && (
+          <div className="absolute top-full left-0 w-full bg-[#0d1424] border-b border-slate-800 p-6 flex flex-col gap-4 text-slate-300 font-medium md:hidden shadow-2xl">
+            <a href="#about" onClick={() => setIsMenuOpen(false)} className="hover:text-cyan-400 transition py-2 border-b border-slate-800/50">01. About</a>
+            <a href="#skills" onClick={() => setIsMenuOpen(false)} className="hover:text-cyan-400 transition py-2 border-b border-slate-800/50">02. Skills</a>
+            <a href="#projects" onClick={() => setIsMenuOpen(false)} className="hover:text-cyan-400 transition py-2 border-b border-slate-800/50">03. Projects</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="hover:text-cyan-400 transition py-2">04. Contact</a>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -120,7 +153,7 @@ const Portfolio = () => {
             {profileData.heroDescription}
           </p>
 
-          {/* Social Badges in Hero */}
+          {/* Social Badges */}
           <div className="flex flex-wrap items-center gap-3 mb-8">
             <a 
               href={profileData.github} 
@@ -152,7 +185,7 @@ const Portfolio = () => {
           </div>
         </div>
 
-        {/* Profile Circle with Glowing Border */}
+        {/* Profile Circle */}
         <div className="relative group shrink-0">
           <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-500"></div>
           <div className="relative w-48 h-48 sm:w-72 sm:h-72 rounded-full overflow-hidden border-2 border-slate-700/80 bg-slate-900">
