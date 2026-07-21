@@ -36,8 +36,8 @@ const Portfolio = () => {
       description: "Interactive study schedule planner designed to optimize exam preparation by dynamically allocating daily study hours based on subject weightage and difficulty criteria.",
       tech: ["JavaScript", "HTML5", "CSS3", "DOM Manipulation"],
       status: "Source Available",
-      liveLink: null,
-      githubLink: "https://github.com/umerrasheed739-ctrl/ExamBuddy"
+      liveLink: "https://exambuddy-planner.netlify.app/",
+      githubLink: "https://github.com/umerrasheed739-ctrl/exambuddy-planner"
     },
     {
       title: "GeoTriage: AI Spatial Clustering Engine (FYP)",
@@ -46,7 +46,7 @@ const Portfolio = () => {
       tech: ["Python", "Machine Learning", "Spatial Databases", "Clustering"],
       status: "FYP Project",
       liveLink: null,
-      githubLink: "https://github.com/umerrasheed739-ctrl"
+      githubLink: null
     },
     {
       title: "AI-Powered Resume Analyzer",
@@ -64,7 +64,7 @@ const Portfolio = () => {
       tech: ["JavaScript", "Node.js", "Express.js", "MongoDB", "HTML/CSS"],
       status: "Active Project",
       liveLink: null,
-      githubLink: "https://github.com/umerrasheed739-ctrl/w-luxe-web"
+      githubLink: "https://github.com/umerrasheed739-ctrl/W-Luxe"
     },
     {
       title: "Full-Stack Web Portfolio & REST APIs",
@@ -73,7 +73,7 @@ const Portfolio = () => {
       tech: ["Laravel", "PHP", "MySQL", "REST API"],
       status: "Source Available",
       liveLink: null,
-      githubLink: "https://github.com/umerrasheed739-ctrl"
+      githubLink: null
     },
     {
       title: "University Student Portal System",
@@ -82,7 +82,7 @@ const Portfolio = () => {
       tech: ["C++", "File Handling", "OOP"],
       status: "Source Available",
       liveLink: null,
-      githubLink: "https://github.com/umerrasheed739-ctrl"
+      githubLink: null
     }
   ];
 
